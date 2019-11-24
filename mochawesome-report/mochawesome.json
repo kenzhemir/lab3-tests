@@ -1,0 +1,778 @@
+{
+  "stats": {
+    "suites": 5,
+    "tests": 20,
+    "passes": 9,
+    "pending": 0,
+    "failures": 11,
+    "start": "2019-11-24T15:08:35.458Z",
+    "end": "2019-11-24T15:11:13.583Z",
+    "duration": 158125,
+    "testsRegistered": 20,
+    "passPercent": 45,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "facc9307-24db-4529-ad68-df60dc32446b",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e1b7f6c5-986e-4185-924a-e2208d5cad44",
+          "title": "Email field tests",
+          "fullFile": "C:\\Users\\miras\\Documents\\SoftwareQualityAndStandards\\automated tests\\test\\emailfieldtests.spec.js",
+          "file": "\\test\\emailfieldtests.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook",
+              "fullTitle": "Email field tests \"before each\" hook",
+              "timedOut": false,
+              "duration": 4572,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build()\nvars = {}",
+              "err": {},
+              "uuid": "ea68a958-a290-4cef-ae33-3baf52d7add1",
+              "parentUUID": "e1b7f6c5-986e-4185-924a-e2208d5cad44",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook",
+              "fullTitle": "Email field tests \"after each\" hook",
+              "timedOut": false,
+              "duration": 46,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "9eb8d1cc-c3d9-498b-9d0e-594620d81f2a",
+              "parentUUID": "e1b7f6c5-986e-4185-924a-e2208d5cad44",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Email must be unique",
+              "fullTitle": "Email field tests Email must be unique",
+              "timedOut": false,
+              "duration": 3523,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://142.93.168.34/account/register\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).sendKeys(\"validUsernameNonExistent\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_firstname\")).sendKeys(\"Jenette\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_lastname\")).sendKeys(\"Cline\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_mail\")).sendKeys(\"existing_email@mailinator.com\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password\")).sendKeys(\"password123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password_confirmation\")).sendKeys(\"password123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user .-highlight\")).click()\n{\n  const elements = await driver.findElements(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\"))\n  assert(elements.length)\n}\nassert(await driver.findElement(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\")).getText() == \"Email has already been taken.\")\nawait driver.close()",
+              "err": {},
+              "uuid": "2c6663aa-aba4-43ea-b9c5-879262fa57f2",
+              "parentUUID": "e1b7f6c5-986e-4185-924a-e2208d5cad44",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Email must have @ in it",
+              "fullTitle": "Email field tests Email must have @ in it",
+              "timedOut": false,
+              "duration": 3430,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://142.93.168.34/account/register\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).sendKeys(\"validUsernameNonExistent\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_firstname\")).sendKeys(\"Jenette\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_lastname\")).sendKeys(\"Cline\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_mail\")).sendKeys(\"mymailmailinator.com\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password\")).sendKeys(\"password123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password_confirmation\")).sendKeys(\"password123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user .-highlight\")).click()\n{\n  const elements = await driver.findElements(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\"))\n  assert(elements.length)\n}\nconst errorText = await driver.findElement(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\")).getText()\nassert(errorText == \"Email is invalid.\")\nawait driver.close()",
+              "err": {},
+              "uuid": "4ee99ffa-4c60-4b17-b73e-2f1ae732796f",
+              "parentUUID": "e1b7f6c5-986e-4185-924a-e2208d5cad44",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Email should not be blank",
+              "fullTitle": "Email field tests Email should not be blank",
+              "timedOut": false,
+              "duration": 2294,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://142.93.168.34/account/register\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).sendKeys(\"janette\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_firstname\")).sendKeys(\"Jenette\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_lastname\")).sendKeys(\"Cline\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password\")).sendKeys(\"password123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password_confirmation\")).sendKeys(\"password123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user .-highlight\")).click()\n{\n  const attribute = await driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_mail\")).getAttribute(\"required\")\n  vars[\"username_req_attr\"] = attribute\n}\nvars[\"passed\"] = vars[\"username_req_attr\"] == \"true\" || vars[\"username_req_attr\"] == \"required\"\nassert(vars[\"passed\"].toString() == \"true\")\nawait driver.close()",
+              "err": {},
+              "uuid": "8bbec8a4-d2a0-441e-8e42-9bdd8feb6939",
+              "parentUUID": "e1b7f6c5-986e-4185-924a-e2208d5cad44",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2c6663aa-aba4-43ea-b9c5-879262fa57f2",
+            "4ee99ffa-4c60-4b17-b73e-2f1ae732796f",
+            "8bbec8a4-d2a0-441e-8e42-9bdd8feb6939"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9247,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "311e9331-5f2f-4816-9353-208fed0523e5",
+          "title": "First name field tests",
+          "fullFile": "C:\\Users\\miras\\Documents\\SoftwareQualityAndStandards\\automated tests\\test\\firstnamefieldtests.spec.js",
+          "file": "\\test\\firstnamefieldtests.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook",
+              "fullTitle": "First name field tests \"before each\" hook",
+              "timedOut": false,
+              "duration": 4646,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build()\nvars = {}",
+              "err": {},
+              "uuid": "7798f9dd-4293-42a0-811f-f588641987dd",
+              "parentUUID": "311e9331-5f2f-4816-9353-208fed0523e5",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook",
+              "fullTitle": "First name field tests \"after each\" hook",
+              "timedOut": false,
+              "duration": 419,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "78fbfba7-4745-4a9d-bec8-8a3f63e3bea9",
+              "parentUUID": "311e9331-5f2f-4816-9353-208fed0523e5",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "First Name must not have any special characters",
+              "fullTitle": "First name field tests First Name must not have any special characters",
+              "timedOut": false,
+              "duration": 4579,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://142.93.168.34/account/register\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).click()\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).sendKeys(\"nalocer\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_firstname\")).sendKeys(\"Constance+!&#\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_lastname\")).sendKeys(\"Richard\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_mail\")).sendKeys(\"cirak3@mailinator.com\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password\")).sendKeys(\"Pa$$w0rd!123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password_confirmation\")).sendKeys(\"Pa$$w0rd!123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user .-highlight\")).click()\n{\n  const elements = await driver.findElements(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\"))\n  assert(elements.length)\n}\nassert(await driver.findElement(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\")).getText() == \"First name is invalid.\")\nawait driver.close()",
+              "err": {
+                "message": "AssertionError [ERR_ASSERTION]: false == true",
+                "estack": "AssertionError [ERR_ASSERTION]: false == true\n    at Context.<anonymous> (test\\firstnamefieldtests.spec.js:30:5)\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+                "diff": "- false\n+ true\n"
+              },
+              "uuid": "cc08169a-edcf-4065-a1ba-e16154231b8b",
+              "parentUUID": "311e9331-5f2f-4816-9353-208fed0523e5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "First Name must not have number value in it",
+              "fullTitle": "First name field tests First Name must not have number value in it",
+              "timedOut": false,
+              "duration": 3197,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://142.93.168.34/account/register\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).sendKeys(\"randomuser\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_firstname\")).sendKeys(\"Amanda4\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_lastname\")).sendKeys(\"Greer\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_mail\")).sendKeys(\"xadofuc1@mailinator.com\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password\")).sendKeys(\"Pa$$w0rd!123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password_confirmation\")).sendKeys(\"Pa$$w0rd!123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user .-highlight\")).click()\n{\n  const elements = await driver.findElements(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\"))\n  assert(elements.length)\n}\nassert(await driver.findElement(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\")).getText() == \"First name is invalid.\")\nawait driver.close()",
+              "err": {
+                "message": "AssertionError [ERR_ASSERTION]: false == true",
+                "estack": "AssertionError [ERR_ASSERTION]: false == true\n    at Context.<anonymous> (test\\firstnamefieldtests.spec.js:46:5)\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+                "diff": "- false\n+ true\n"
+              },
+              "uuid": "da9147c9-362f-4671-b9ea-fb9fe817f526",
+              "parentUUID": "311e9331-5f2f-4816-9353-208fed0523e5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "First name should not be blank",
+              "fullTitle": "First name field tests First name should not be blank",
+              "timedOut": false,
+              "duration": 2468,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://142.93.168.34/account/register\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).sendKeys(\"jenette\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_lastname\")).sendKeys(\"Cline\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_mail\")).sendKeys(\"rabeful@mailinator.com\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password\")).sendKeys(\"password123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password_confirmation\")).sendKeys(\"password123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user .-highlight\")).click()\n{\n  const attribute = await driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_firstname\")).getAttribute(\"required\")\n  vars[\"username_req_attr\"] = attribute\n}\n// vars[\"passed\"]  = await driver.executeScript(\"return arguments[0] == true || arguments[0] == \\\"required\\\"\", vars[\"username_req_attr\"])\nvars[\"passed\"] = vars[\"username_req_attr\"] == \"true\" || vars[\"username_req_attr\"] == \"required\"\nassert(vars[\"passed\"].toString() == \"true\")\nawait driver.close()",
+              "err": {},
+              "uuid": "9f7e917c-af86-449f-a35f-ff51a92cd935",
+              "parentUUID": "311e9331-5f2f-4816-9353-208fed0523e5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9f7e917c-af86-449f-a35f-ff51a92cd935"
+          ],
+          "failures": [
+            "cc08169a-edcf-4065-a1ba-e16154231b8b",
+            "da9147c9-362f-4671-b9ea-fb9fe817f526"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 10244,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "4aee493b-5335-44e6-9b53-fe5166d945b0",
+          "title": "Last name field tests",
+          "fullFile": "C:\\Users\\miras\\Documents\\SoftwareQualityAndStandards\\automated tests\\test\\lastnamefieldtests.spec.js",
+          "file": "\\test\\lastnamefieldtests.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook",
+              "fullTitle": "Last name field tests \"before each\" hook",
+              "timedOut": false,
+              "duration": 4593,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build()\nvars = {}",
+              "err": {},
+              "uuid": "c988cd09-8e03-49d6-aed1-11453bb8dbbc",
+              "parentUUID": "4aee493b-5335-44e6-9b53-fe5166d945b0",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook",
+              "fullTitle": "Last name field tests \"after each\" hook",
+              "timedOut": false,
+              "duration": 44,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "e84353ba-7caf-40a6-b630-a735fb447c36",
+              "parentUUID": "4aee493b-5335-44e6-9b53-fe5166d945b0",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Last name should not be blank",
+              "fullTitle": "Last name field tests Last name should not be blank",
+              "timedOut": false,
+              "duration": 2441,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://142.93.168.34/account/register\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).sendKeys(\"jenette123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_firstname\")).sendKeys(\"Cline\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_mail\")).sendKeys(\"rabeful@mailinator.com\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password\")).sendKeys(\"password123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password_confirmation\")).sendKeys(\"password123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user .-highlight\")).click()\n{\n  const attribute = await driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_lastname\")).getAttribute(\"required\")\n  vars[\"username_req_attr\"] = attribute\n}\nvars[\"passed\"] = vars[\"username_req_attr\"] == \"true\" || vars[\"username_req_attr\"] == \"required\"\nassert(vars[\"passed\"].toString() == \"true\")\nawait driver.close()",
+              "err": {},
+              "uuid": "4132b21a-bfd2-4e4d-a882-c91c20f979af",
+              "parentUUID": "4aee493b-5335-44e6-9b53-fe5166d945b0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Last Name must not have any special characters",
+              "fullTitle": "Last name field tests Last Name must not have any special characters",
+              "timedOut": false,
+              "duration": 3138,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://142.93.168.34/account/register\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).click()\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).sendKeys(\"nalocer\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_firstname\")).sendKeys(\"Constance\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_lastname\")).sendKeys(\"Richard+!&$*#\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_mail\")).sendKeys(\"cirak3@mailinator.com\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password\")).sendKeys(\"Pa$$w0rd!123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password_confirmation\")).sendKeys(\"Pa$$w0rd!123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user .-highlight\")).click()\n{\n  const elements = await driver.findElements(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\"))\n  assert(elements.length)\n}\nassert(await driver.findElement(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\")).getText() == \"Last name is invalid.\")\nawait driver.close()",
+              "err": {
+                "message": "AssertionError [ERR_ASSERTION]: false == true",
+                "estack": "AssertionError [ERR_ASSERTION]: false == true\n    at Context.<anonymous> (test\\lastnamefieldtests.spec.js:46:5)\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+                "diff": "- false\n+ true\n"
+              },
+              "uuid": "29b026d8-449b-4d41-bf8c-94100254ce5b",
+              "parentUUID": "4aee493b-5335-44e6-9b53-fe5166d945b0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Last Name must not have number value in it",
+              "fullTitle": "Last name field tests Last Name must not have number value in it",
+              "timedOut": false,
+              "duration": 3199,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://142.93.168.34/account/register\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).sendKeys(\"randomuser\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_firstname\")).sendKeys(\"Amanda\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_lastname\")).sendKeys(\"Greer123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_mail\")).sendKeys(\"xadofuc1@mailinator.com\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password\")).sendKeys(\"Pa$$w0rd!123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password_confirmation\")).sendKeys(\"Pa$$w0rd!123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user .-highlight\")).click()\n{\n  const elements = await driver.findElements(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\"))\n  assert(elements.length)\n}\nassert(await driver.findElement(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\")).getText() == \"Last name is invalid.\")\nawait driver.close()",
+              "err": {
+                "message": "AssertionError [ERR_ASSERTION]: false == true",
+                "estack": "AssertionError [ERR_ASSERTION]: false == true\n    at Context.<anonymous> (test\\lastnamefieldtests.spec.js:62:5)\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+                "diff": "- false\n+ true\n"
+              },
+              "uuid": "b06d67a1-f448-4af8-88b2-6a8cc5c6d505",
+              "parentUUID": "4aee493b-5335-44e6-9b53-fe5166d945b0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4132b21a-bfd2-4e4d-a882-c91c20f979af"
+          ],
+          "failures": [
+            "29b026d8-449b-4d41-bf8c-94100254ce5b",
+            "b06d67a1-f448-4af8-88b2-6a8cc5c6d505"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 8778,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "513ce4b9-13cb-4518-a360-58481734c5c8",
+          "title": "Password field tests",
+          "fullFile": "C:\\Users\\miras\\Documents\\SoftwareQualityAndStandards\\automated tests\\test\\passwordfieldtests.spec.js",
+          "file": "\\test\\passwordfieldtests.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook",
+              "fullTitle": "Password field tests \"before each\" hook",
+              "timedOut": false,
+              "duration": 4588,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build()\nvars = {}",
+              "err": {},
+              "uuid": "4efe291e-b5fe-4517-bfc2-bce8a5dcbfff",
+              "parentUUID": "513ce4b9-13cb-4518-a360-58481734c5c8",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook",
+              "fullTitle": "Password field tests \"after each\" hook",
+              "timedOut": false,
+              "duration": 38,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "0ab7ac71-3fdb-40d4-91b3-5b275a3c90f9",
+              "parentUUID": "513ce4b9-13cb-4518-a360-58481734c5c8",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Confirm Password must be exactly same as Password",
+              "fullTitle": "Password field tests Confirm Password must be exactly same as Password",
+              "timedOut": false,
+              "duration": 3001,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://142.93.168.34/account/register\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).sendKeys(\"typevi\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_firstname\")).sendKeys(\"George\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_lastname\")).sendKeys(\"Jerry\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_mail\")).sendKeys(\"noteveju@mailinator.net\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password\")).sendKeys(\"password123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password_confirmation\")).sendKeys(\"differentpassword\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user .-highlight\")).click()\n{\n  const elements = await driver.findElements(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\"))\n  assert(elements.length)\n}\nassert(await driver.findElement(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\")).getText() == \"Confirmation doesn\\\\\\'t match Password.\")\nawait driver.close()",
+              "err": {
+                "message": "AssertionError [ERR_ASSERTION]: false == true",
+                "estack": "AssertionError [ERR_ASSERTION]: false == true\n    at Context.<anonymous> (test\\passwordfieldtests.spec.js:29:5)\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+                "diff": "- false\n+ true\n"
+              },
+              "uuid": "146a14d9-1d60-418a-b612-01e2281ecc88",
+              "parentUUID": "513ce4b9-13cb-4518-a360-58481734c5c8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Confirm Password must not be blank",
+              "fullTitle": "Password field tests Confirm Password must not be blank",
+              "timedOut": false,
+              "duration": 2451,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://142.93.168.34/account/register\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).sendKeys(\"typevi\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_firstname\")).sendKeys(\"George\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_lastname\")).sendKeys(\"Jerry\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_mail\")).sendKeys(\"noteveju@mailinator.net\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password\")).sendKeys(\"password123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user .-highlight\")).click()\n{\n  const attribute = await driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password_confirmation\")).getAttribute(\"required\")\n  vars[\"username_req_attr\"] = attribute\n}\nvars[\"passed\"] = vars[\"username_req_attr\"] == \"true\" || vars[\"username_req_attr\"] == \"required\"\nassert(vars[\"passed\"].toString() == \"true\")\nawait driver.close()",
+              "err": {},
+              "uuid": "4c932b06-6963-4e8a-b9a9-ac0f6765b97b",
+              "parentUUID": "513ce4b9-13cb-4518-a360-58481734c5c8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Password must be minimum 10 characters long",
+              "fullTitle": "Password field tests Password must be minimum 10 characters long",
+              "timedOut": false,
+              "duration": 3322,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://142.93.168.34/account/register\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).sendKeys(\"dafffy\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_firstname\")).sendKeys(\"Ebony\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_lastname\")).sendKeys(\"Fuller\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_mail\")).sendKeys(\"lolo@mailinator.com\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password\")).sendKeys(\"shortpass\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password_confirmation\")).sendKeys(\"shortpass\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user .-highlight\")).click()\n{\n  const elements = await driver.findElements(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\"))\n  assert(elements.length)\n}\nassert(await driver.findElement(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\")).getText() == \"Password is too short (minimum is 10 characters).\")\nawait driver.close()",
+              "err": {},
+              "uuid": "dd79cc60-4722-4a91-8399-ec526cc33043",
+              "parentUUID": "513ce4b9-13cb-4518-a360-58481734c5c8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Password must contain numbers",
+              "fullTitle": "Password field tests Password must contain numbers",
+              "timedOut": false,
+              "duration": 3707,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://142.93.168.34/account/register\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).sendKeys(\"nonexistentuser\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_firstname\")).sendKeys(\"Amanda\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_lastname\")).sendKeys(\"Greer\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_mail\")).sendKeys(\"xado@mailinator.com\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password\")).sendKeys(\"passWithoutNumbers\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password_confirmation\")).sendKeys(\"passWithoutNumbers\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user .-highlight\")).click()\n{\n  const elements = await driver.findElements(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\"))\n  assert(elements.length)\n}\nassert(await driver.findElement(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\")).getText() == \"Password must also contain numbers.\")\nawait driver.close()",
+              "err": {
+                "message": "AssertionError [ERR_ASSERTION]: false == true",
+                "estack": "AssertionError [ERR_ASSERTION]: false == true\n    at Context.<anonymous> (test\\passwordfieldtests.spec.js:77:5)\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+                "diff": "- false\n+ true\n"
+              },
+              "uuid": "9508035c-8c5b-45b3-bc74-be1ae9986045",
+              "parentUUID": "513ce4b9-13cb-4518-a360-58481734c5c8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Password must contain special characters",
+              "fullTitle": "Password field tests Password must contain special characters",
+              "timedOut": false,
+              "duration": 3404,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://142.93.168.34/account/register\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).sendKeys(\"nonexistentuser\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_firstname\")).sendKeys(\"Amanda\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_lastname\")).sendKeys(\"Greer\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_mail\")).sendKeys(\"xado@mailinator.com\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password\")).sendKeys(\"pa$$with0uppercase\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password_confirmation\")).sendKeys(\"pa$$with0uppercase\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user .-highlight\")).click()\n{\n  const elements = await driver.findElements(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\"))\n  assert(elements.length)\n}\nassert(await driver.findElement(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\")).getText() == \"Password must also contain uppercase characters\")\nawait driver.close()",
+              "err": {
+                "message": "AssertionError [ERR_ASSERTION]: false == true",
+                "estack": "AssertionError [ERR_ASSERTION]: false == true\n    at Context.<anonymous> (test\\passwordfieldtests.spec.js:93:5)\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+                "diff": "- false\n+ true\n"
+              },
+              "uuid": "9e34f1ff-7e6c-49f7-9f33-a2616720c363",
+              "parentUUID": "513ce4b9-13cb-4518-a360-58481734c5c8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Password must contain uppercase characters",
+              "fullTitle": "Password field tests Password must contain uppercase characters",
+              "timedOut": false,
+              "duration": 3272,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://142.93.168.34/account/register\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).sendKeys(\"nonexistentuser\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_firstname\")).sendKeys(\"Amanda\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_lastname\")).sendKeys(\"Greer\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_mail\")).sendKeys(\"xado@mailinator.com\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password\")).sendKeys(\"passWithoutSpecialChars\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password_confirmation\")).sendKeys(\"passWithoutSpecialChars\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user .-highlight\")).click()\n{\n  const elements = await driver.findElements(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\"))\n  assert(elements.length)\n}\nassert(await driver.findElement(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\")).getText() == \"Password must also contain special characters\")\nawait driver.close()",
+              "err": {
+                "message": "AssertionError [ERR_ASSERTION]: false == true",
+                "estack": "AssertionError [ERR_ASSERTION]: false == true\n    at Context.<anonymous> (test\\passwordfieldtests.spec.js:109:5)\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+                "diff": "- false\n+ true\n"
+              },
+              "uuid": "f17750ba-0515-49b1-addc-84f69a95adb2",
+              "parentUUID": "513ce4b9-13cb-4518-a360-58481734c5c8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Password must not be blank",
+              "fullTitle": "Password field tests Password must not be blank",
+              "timedOut": false,
+              "duration": 2490,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://142.93.168.34/account/register\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).sendKeys(\"typevi\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_firstname\")).sendKeys(\"George\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_lastname\")).sendKeys(\"Jerry\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_mail\")).sendKeys(\"noteveju@mailinator.net\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password_confirmation\")).sendKeys(\"password123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user .-highlight\")).click()\n{\n  const attribute = await driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password\")).getAttribute(\"required\")\n  vars[\"username_req_attr\"] = attribute\n}\nvars[\"passed\"] = vars[\"username_req_attr\"] == \"true\" || vars[\"username_req_attr\"] == \"required\"\nassert(vars[\"passed\"].toString() == \"true\")\nawait driver.close()",
+              "err": {},
+              "uuid": "a74f0c83-cdf5-4110-b5ee-f3c72208a93b",
+              "parentUUID": "513ce4b9-13cb-4518-a360-58481734c5c8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4c932b06-6963-4e8a-b9a9-ac0f6765b97b",
+            "dd79cc60-4722-4a91-8399-ec526cc33043",
+            "a74f0c83-cdf5-4110-b5ee-f3c72208a93b"
+          ],
+          "failures": [
+            "146a14d9-1d60-418a-b612-01e2281ecc88",
+            "9508035c-8c5b-45b3-bc74-be1ae9986045",
+            "9e34f1ff-7e6c-49f7-9f33-a2616720c363",
+            "f17750ba-0515-49b1-addc-84f69a95adb2"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 21647,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "fa8e4170-0f99-4257-a6d5-51b8e4379d58",
+          "title": "Username field tests",
+          "fullFile": "C:\\Users\\miras\\Documents\\SoftwareQualityAndStandards\\automated tests\\test\\usernamefieldtests.spec.js",
+          "file": "\\test\\usernamefieldtests.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook",
+              "fullTitle": "Username field tests \"before each\" hook",
+              "timedOut": false,
+              "duration": 4601,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build()\nvars = {}",
+              "err": {},
+              "uuid": "3e2a9aca-a59d-4af7-8421-f83056bda3cf",
+              "parentUUID": "fa8e4170-0f99-4257-a6d5-51b8e4379d58",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook",
+              "fullTitle": "Username field tests \"after each\" hook",
+              "timedOut": false,
+              "duration": 32,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "34f2a993-ea93-4f7a-a90d-a3b6e6b6ec70",
+              "parentUUID": "fa8e4170-0f99-4257-a6d5-51b8e4379d58",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Username should not contain special characters",
+              "fullTitle": "Username field tests Username should not contain special characters",
+              "timedOut": false,
+              "duration": 3275,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://142.93.168.34/account/register\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).click()\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).sendKeys(\"naloceryd+!&#\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_firstname\")).sendKeys(\"Constance\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_lastname\")).sendKeys(\"Richard\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_mail\")).sendKeys(\"cirak@mailinator.com\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password\")).sendKeys(\"Pa$$w0rd!123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password_confirmation\")).sendKeys(\"Pa$$w0rd!123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user .-highlight\")).click()\n{\n  const elements = await driver.findElements(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\"))\n  assert(elements.length)\n}\nassert(await driver.findElement(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\")).getText() == \"Username is invalid.\")\nawait driver.close()",
+              "err": {
+                "message": "AssertionError [ERR_ASSERTION]: false == true",
+                "estack": "AssertionError [ERR_ASSERTION]: false == true\n    at Context.<anonymous> (test\\usernamefieldtests.spec.js:30:5)\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+                "diff": "- false\n+ true\n"
+              },
+              "uuid": "2e420e7c-48a2-49d4-be78-309966954b13",
+              "parentUUID": "fa8e4170-0f99-4257-a6d5-51b8e4379d58",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Username should not be blank",
+              "fullTitle": "Username field tests Username should not be blank",
+              "timedOut": false,
+              "duration": 2476,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://142.93.168.34/account/register\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_firstname\")).sendKeys(\"Jenette\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_lastname\")).sendKeys(\"Cline\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_mail\")).sendKeys(\"rabeful@mailinator.com\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password\")).sendKeys(\"password123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password_confirmation\")).sendKeys(\"password123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user .-highlight\")).click()\n{\n  const attribute = await driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).getAttribute(\"required\")\n  vars[\"username_req_attr\"] = attribute\n}\nvars[\"passed\"] = vars[\"username_req_attr\"] == \"true\" || vars[\"username_req_attr\"] == \"required\"\nassert(vars[\"passed\"].toString() == \"true\")\nawait driver.close()",
+              "err": {},
+              "uuid": "a1c64534-948d-445f-97a8-1909438c5bb6",
+              "parentUUID": "fa8e4170-0f99-4257-a6d5-51b8e4379d58",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Username must not have less than four characters",
+              "fullTitle": "Username field tests Username must not have less than four characters",
+              "timedOut": false,
+              "duration": 3449,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://142.93.168.34/account/register\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).sendKeys(\"daf\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_firstname\")).sendKeys(\"Ebony\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_lastname\")).sendKeys(\"Fuller\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_mail\")).sendKeys(\"lovydylu@mailinator.com\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password\")).sendKeys(\"Pa$$w0rd!123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password_confirmation\")).sendKeys(\"Pa$$w0rd!123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user .-highlight\")).click()\n{\n  const elements = await driver.findElements(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\"))\n  assert(elements.length)\n}\nassert(await driver.findElement(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\")).getText() == \"Username is invalid.\")\nawait driver.close()",
+              "err": {
+                "message": "AssertionError [ERR_ASSERTION]: false == true",
+                "estack": "AssertionError [ERR_ASSERTION]: false == true\n    at Context.<anonymous> (test\\usernamefieldtests.spec.js:62:5)\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+                "diff": "- false\n+ true\n"
+              },
+              "uuid": "63a37a4e-6595-455f-9803-3a4a30e58180",
+              "parentUUID": "fa8e4170-0f99-4257-a6d5-51b8e4379d58",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Username must not have greater than 30 characters",
+              "fullTitle": "Username field tests Username must not have greater than 30 characters",
+              "timedOut": false,
+              "duration": 3110,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://142.93.168.34/account/register\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_login\")).sendKeys(\"veryveryveryveryveryverylongusernametest\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_firstname\")).sendKeys(\"Ebony\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_lastname\")).sendKeys(\"Fuller\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_mail\")).sendKeys(\"loternet@mailinator.com\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password\")).sendKeys(\"Pa$$w0rd!123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user #user_password_confirmation\")).sendKeys(\"Pa$$w0rd!123\")\nawait driver.findElement(By.css(\".op-modal--modal-container > #new_user .-highlight\")).click()\n{\n  const elements = await driver.findElements(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\"))\n  assert(elements.length)\n}\nassert(await driver.findElement(By.css(\".op-modal--modal-container > #new_user > #errorExplanation li\")).getText() == \"Username is invalid.\")\nawait driver.close()",
+              "err": {
+                "message": "AssertionError [ERR_ASSERTION]: false == true",
+                "estack": "AssertionError [ERR_ASSERTION]: false == true\n    at Context.<anonymous> (test\\usernamefieldtests.spec.js:78:5)\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+                "diff": "- false\n+ true\n"
+              },
+              "uuid": "a4a54e1a-975b-4b71-a5ed-6cec0c4298bb",
+              "parentUUID": "fa8e4170-0f99-4257-a6d5-51b8e4379d58",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a1c64534-948d-445f-97a8-1909438c5bb6"
+          ],
+          "failures": [
+            "2e420e7c-48a2-49d4-be78-309966954b13",
+            "63a37a4e-6595-455f-9803-3a4a30e58180",
+            "a4a54e1a-975b-4b71-a5ed-6cec0c4298bb"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 12310,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "6.2.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": null,
+      "version": "4.0.1"
+    }
+  }
+}
